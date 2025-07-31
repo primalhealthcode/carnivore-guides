@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnivore for Women: What They Don't Tell You</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #e91e63, #c2185b);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .author {
+            font-size: 1rem;
+            opacity: 0.8;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section {
+            padding: 50px 40px;
+            border-bottom: 3px solid #ecf0f1;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #e91e63, #c2185b);
+            border-radius: 2px;
+        }
+
+        .section p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fce4ec, #f8bbd9);
+            border-left: 5px solid #e91e63;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.1);
+        }
+
+        .intro-section {
+            background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid #f8bbd9;
+        }
+
+        .hormones-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .hormone-card {
+            background: linear-gradient(135deg, #fff0f5, #ffe4e1);
+            padding: 25px;
+            border-radius: 12px;
+            border-top: 4px solid #e91e63;
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.1);
+        }
+
+        .hormone-card h3 {
+            color: #c2185b;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .timing-section {
+            background: linear-gradient(135deg, #f9f2f8, #f3e5f5);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid #e1bee7;
+        }
+
+        .timing-option {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #e91e63;
+            box-shadow: 0 3px 10px rgba(233, 30, 99, 0.1);
+        }
+
+        .timing-option h4 {
+            color: #c2185b;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .timing-option .best-time {
+            background: linear-gradient(135deg, #e91e63, #c2185b);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .avoid-list {
+            background: linear-gradient(135deg, #ffebee, #fce4ec);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .avoid-list h4 {
+            color: #c2185b;
+            margin-bottom: 15px;
+        }
+
+        .avoid-list ul {
+            list-style: none;
+        }
+
+        .avoid-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .avoid-list li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        .approach-section {
+            background: linear-gradient(135deg, #fdf7fd, #faf0fa);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .nutrient-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .nutrient-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 3px solid #e91e63;
+            box-shadow: 0 3px 10px rgba(233, 30, 99, 0.1);
+        }
+
+        .nutrient-item strong {
+            color: #c2185b;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, #fff8fa, #ffeef5);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #e91e63;
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.1);
+        }
+
+        .benefit-card h3 {
+            color: #c2185b;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .key-difference {
+            background: linear-gradient(135deg, #c2185b, #e91e63);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, #c2185b, #e91e63);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta h2::after {
+            background: white;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #c2185b;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .social {
+            margin-top: 30px;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+            }
+            
+            .header, .section {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .hormones-grid, .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .nutrient-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .section h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Carnivore for Women</h1>
+            <div class="subtitle">What They Don't Tell You About Meat-Based Eating</div>
+            <div class="author">By Alessandra @primalhealthcode</div>
+        </div>
+
+        <div class="section">
+            <h2>The Truth About Women and Carnivore</h2>
+            
+            <div class="intro-section">
+                <p>You've heard the success stories from men losing 50+ pounds on carnivore, but what about women? The truth is, women's bodies operate differently, and most carnivore advice ignores the unique hormonal and metabolic needs of the female body.</p>
+
+                <p>As women, we can't just copy what works for men. Our hormones fluctuate monthly, our stress responses are different, and our relationship with food is more complex. Yet most carnivore information treats everyone the same.</p>
+
+                <p>In this guide, I'm sharing what actually works for women on carnivore—the timing, the approach, and most importantly, how to work with your female physiology instead of against it.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Your Hormones on Carnivore</h2>
+            
+            <p>One of the biggest myths about carnivore is that it disrupts women's hormones. The opposite is actually true when done correctly. Here's what really happens:</p>
+
+            <div class="hormones-grid">
+                <div class="hormone-card">
+                    <h3>Estrogen Balance</h3>
+                    <p>Animal fats provide the building blocks for healthy hormone production. Cholesterol from meat is essential for estrogen synthesis.</p>
+                </div>
+
+                <div class="hormone-card">
+                    <h3>Progesterone Support</h3>
+                    <p>Adequate calories from nutrient-dense animal foods support progesterone production, improving sleep and mood.</p>
+                </div>
+
+                <div class="hormone-card">
+                    <h3>Insulin Sensitivity</h3>
+                    <p>Eliminating plant foods stabilizes blood sugar, reducing insulin resistance that can worsen PCOS and weight gain.</p>
+                </div>
+
+                <div class="hormone-card">
+                    <h3>Thyroid Function</h3>
+                    <p>Animal proteins provide tyrosine and iodine needed for thyroid hormone production, boosting metabolism naturally.</p>
+                </div>
+            </div>
+
+            <div class="key-difference">
+                <h3 style="color: white; margin-bottom: 15px;">The Key Difference for Women</h3>
+                <p>Unlike men, women need to be gentler with their approach. Extreme restriction or too few calories can backfire by increasing cortisol and disrupting the delicate hormonal balance we depend on for wellbeing.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Meal Timing That Works With Your Body Clock</h2>
+            
+            <p>Your circadian rhythm isn't just about sleep—it controls hormone release, digestion, and metabolism. Here's how to time your meals for optimal results:</p>
+
+            <div class="timing-section">
+                <div class="timing-option">
+                    <h4>If You Eat One Meal a Day (OMAD)</h4>
+                    <div class="best-time">Best time: 12pm-2pm</div>
+                    <p>Eating your single meal during peak insulin sensitivity maximizes nutrient absorption and supports natural cortisol rhythm. Your body expects food when the sun is highest, aligning with ancestral eating patterns. This timing also allows for proper digestion before your evening wind-down.</p>
+                </div>
+
+                <div class="timing-option">
+                    <h4>If You Eat Two Meals a Day</h4>
+                    <div class="best-time">Meal 1: 10am-12pm | Meal 2: 4pm-6pm</div>
+                    <p>This schedule works with your natural hormone fluctuations. The first meal supports morning cortisol awakening response, while the second meal provides adequate nutrients for overnight repair and hormone production. Finish eating 3-4 hours before bed for optimal sleep.</p>
+                </div>
+
+                <div class="avoid-list">
+                    <h4>What to Avoid</h4>
+                    <ul>
+                        <li>Late night eating (disrupts growth hormone and melatonin)</li>
+                        <li>Eating within 2 hours of waking (can spike cortisol unnaturally)</li>
+                        <li>Inconsistent meal timing (confuses your internal clock)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>The Female-Focused Carnivore Approach</h2>
+            
+            <div class="approach-section">
+                <h3 style="color: #c2185b; font-size: 1.5rem; margin-bottom: 20px;">Don't Undereat</h3>
+                <p>The biggest mistake women make on carnivore is eating too little. Your body needs adequate calories to maintain hormonal function. Aim for 0.8-1g protein per pound of body weight and don't fear fat—you need it for hormone production.</p>
+
+                <h3 style="color: #c2185b; font-size: 1.5rem; margin: 30px 0 20px 0;">Prioritize These Nutrients</h3>
+                <div class="nutrient-grid">
+                    <div class="nutrient-item">
+                        <strong>Iron</strong>
+                        Red meat, organ meats, shellfish
+                    </div>
+                    <div class="nutrient-item">
+                        <strong>B-vitamins</strong>
+                        Liver, beef, fish, eggs
+                    </div>
+                    <div class="nutrient-item">
+                        <strong>Omega-3s</strong>
+                        Fatty fish, grass-fed beef
+                    </div>
+                    <div class="nutrient-item">
+                        <strong>Zinc</strong>
+                        Oysters, beef, lamb
+                    </div>
+                    <div class="nutrient-item">
+                        <strong>Choline</strong>
+                        Egg yolks, liver, beef
+                    </div>
+                </div>
+
+                <h3 style="color: #c2185b; font-size: 1.5rem; margin: 30px 0 20px 0;">Energy and Mental Clarity</h3>
+                <p>Unlike restrictive diets that leave you drained, proper carnivore eating provides steady energy all day. No more 3pm crashes or brain fog. Your brain runs efficiently on ketones produced from dietary fat, while stable blood sugar keeps your mood balanced.</p>
+
+                <h3 style="color: #c2185b; font-size: 1.5rem; margin: 30px 0 20px 0;">Hydration and Electrolytes</h3>
+                <p>Without plant fiber holding water, you'll need more salt and fluids. Add quality sea salt to your meat, drink when thirsty, and consider adding electrolytes if you're active. This prevents the fatigue some women experience when transitioning.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>What They Don't Tell You (But Should)</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Your Cycle May Improve</h3>
+                    <p>Many women report more regular cycles, less PMS, and reduced cramping on carnivore. Stable blood sugar and adequate fat intake support healthy hormone production throughout your monthly cycle.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>Strength and Muscle</h3>
+                    <p>The high protein content naturally supports muscle maintenance and growth. You'll likely feel stronger and more energetic for workouts, with better recovery between sessions.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>Sleep Quality</h3>
+                    <p>Stable blood sugar throughout the night means deeper, more restorative sleep. Many women find they need less sleep but feel more rested, thanks to improved sleep architecture.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <h3>Mental Health Benefits</h3>
+                    <p>The elimination of blood sugar spikes and crashes often leads to more stable moods, reduced anxiety, and clearer thinking. Your brain gets consistent fuel without the inflammatory compounds found in many plant foods.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta">
+            <h2>Ready to Try Carnivore the Right Way?</h2>
+            
+            <p>This is just the beginning of understanding how to make carnivore work specifically for women's bodies. The key is doing it correctly from the start, with proper meal timing, adequate nutrition, and respect for your unique hormonal needs.</p>
+            
+            <p>I send out 2 weekly emails with practical carnivore tips, meal timing strategies, and hormone-supportive nutrition advice specifically designed for women who want to thrive on a meat-based lifestyle.</p>
+            
+            <p><strong>No generic advice or male-focused protocols—just real guidance for real women.</strong></p>
+            
+            <a href="#" class="cta-button">Get My Weekly Emails</a>
+            <a href="#" class="cta-button">Follow @primalhealthcode</a>
+            
+            <div class="social">
+                <p><strong>Ready to transform your health with professional support?</strong><br>
+                Apply for 1:1 coaching and get the personal guidance you deserve.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
